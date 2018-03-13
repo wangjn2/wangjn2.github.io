@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>购买GoDaddy域名设置GitHub Pages</title>
-  <meta name="description" content="Congrats, you’ve finally created a personal website that you want your own custom domain name instead of using gh-pages to host it. The process of connecting...">
+  <title>math</title>
+  <meta name="description" content="about math">
   <meta name="author" content="stidio">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="购买GoDaddy域名设置GitHub Pages">
-  <meta name="twitter:description" content="Congrats, you’ve finally created a personal website that you want your own custom domain name instead of using gh-pages to host it. The process of connecting...">
+  <meta name="twitter:title" content="math">
+  <meta name="twitter:description" content="about math">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="购买GoDaddy域名设置GitHub Pages">
-  <meta property="og:description" content="Congrats, you’ve finally created a personal website that you want your own custom domain name instead of using gh-pages to host it. The process of connecting...">
+  <meta property="og:title" content="math">
+  <meta property="og:description" content="about math">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2018/03/godaddy_github_pages_dns/">
+  <link rel="canonical" href="http://localhost:4000/2018/03/math/">
   <link rel="alternate" type="application/rss+xml" title="王凯男" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -143,9 +143,9 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">购买GoDaddy域名设置GitHub Pages</h1>
+    <h1 class="post-title">math</h1>
     <div class="post-meta">
-      <time datetime="2018-03-12 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-12</time>
+      <time datetime="2018-03-13 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-03-13</time>
      
       <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       <span id="busuanzi_container_page_pv">　　阅读：<span id="busuanzi_value_page_pv"></span>次</span>
@@ -154,46 +154,17 @@
   </header>
 
   <section class="post">
-    <p>Congrats, you’ve finally created a personal website that you want your own custom domain name instead of using gh-pages to host it. The process of connecting your domain to your gh-pages is quite simple. However, choosing the perfect domain name is the tricky part. I was very tempted to buy a “.ninja” extension, but ended up settling with an “.io.” Additionally, I was stumped as to whether to go with a nickname or my full name. In the end, I chose, kirstenswanson.io.</p>
+    <p>about math</p>
 
-<p>Github provides, some docs to wire up your domain with your gh-pages, but I’m going to cover the set up in 7 simple steps.</p>
-
-<p>First, the most difficult part…decide on a domain name and buy it on GoDaddy (fingers-crossed you get the domain name you want and someone else hasn’t already taken it)
-On the home page of your account the “My Products” tab is selected on default, which makes it easy to click on the “Manage” button</p>
-
-<ol>
-  <li>
-    <p>Scroll down to the bottom of the page and click the “Manage DNS” button</p>
-  </li>
-  <li>
-    <p>Within the DNS management page you will need to make three changes</p>
-  </li>
-</ol>
-
-<p>In the Type “A” row update the IP address to: 192.30.252.153
-(this will point your custom domain to GitHub’s server)
-In the CNAME row with Name “www” input your gh-pages website (username.github.io)
-At the bottom click the “ADD” button and make another Type “A” row with a different IP address of: 192.30.252.154
-(don’t worry when you leave the page it will alphabetize the types)</p>
-
-<ol>
-  <li>
-    <p>Go to your editor and in the repository of your website create a new file named “CNAME” in the root of your directory</p>
-  </li>
-  <li>
-    <p>In the “CNAME” file add your domain name purchased from GoDaddy</p>
-  </li>
-  <li>
-    <p>Add, commit, and push your changes to Github</p>
-  </li>
-</ol>
-
-<p>You can confirm that your DNS is set-up correctly by using the dig command in your terminal with your custom domain. You should see that your “A” Types point to the IP addresses that you had specified in GoDaddy’s DNS management page, in other words you’re pointing your DNS to GitHub’s server. Below is an example of the dig command:</p>
-
-<p>If you’re encountering any problems, this GitHub Troubleshooting Custom Domains documentation is a good reference.</p>
-
-<p>And just like that, you now have your very own custom DNS! As a side note, it may take some time for your DNS configuration to update, but after that celebrate and share your website! 🎉</p>
-
+<p>@wangkainan-X555LD:~/IdeaProjects/wangjn2.github.io$ bundle exec jekyll serve
+Configuration file: /home/wangkainan/IdeaProjects/wangjn2.github.io/_config.yml
+            Source: /home/wangkainan/IdeaProjects/wangjn2.github.io
+       Destination: /home/wangkainan/IdeaProjects/wangjn2.github.io/_site
+ Incremental build: disabled. Enable with –incremental
+      Generating… 
+                    done in 1.028 seconds.
+ Auto-regeneration: enabled for ‘/home/wangkainan/IdeaProjects/wangjn2.github.io’
+    Server address: http://127.0.0.1:4000</p>
 
 
   </section>
@@ -203,15 +174,10 @@ At the bottom click the “ADD” button and make another Type “A” row with 
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2018/03/hello_world/" data-toggle="tooltip" data-placement="top" title="Hello World">上一篇：  <span>Hello World</span>
+            <a href="/2018/03/godaddy_github_pages_dns/" data-toggle="tooltip" data-placement="top" title="购买GoDaddy域名设置GitHub Pages">上一篇：  <span>购买GoDaddy域名设置GitHub Pages</span>
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2018/03/math/" data-toggle="tooltip" data-placement="top" title="math">下一篇：  <span>math</span>
-            </a>
-        </li>
         
     </ul>
 </section>
@@ -223,8 +189,8 @@ At the bottom click the “ADD” button and make another Type “A” row with 
     <script>
     
     var disqus_config = function () {
-        this.page.url = "http://localhost:4000/2018/03/godaddy_github_pages_dns/";
-        this.page.identifier = "/2018/03/godaddy_github_pages_dns/";
+        this.page.url = "http://localhost:4000/2018/03/math/";
+        this.page.identifier = "/2018/03/math/";
     };
 
     var disqus_shortname = 'freewind-17';
