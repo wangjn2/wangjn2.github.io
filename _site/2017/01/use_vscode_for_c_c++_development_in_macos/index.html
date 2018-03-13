@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>在macOS下使用Visual Studio Code进行C/C++开发</title>
+  <meta name="description" content="平时工作做C/C++方面的开发更多还是在Windows下使用Visual Studio，几乎都是做跨平台开发，Windows上跑通后Linux上编译发布，基本上都没什么问题，如果的确需要调试，有VisualGDB的存在也很方便；但在macOS下使用过IDE性质的XCode,CLion,Qt Creator，也使用...">
+  <meta name="author" content="stidio">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="在macOS下使用Visual Studio Code进行C/C++开发">
+  <meta name="twitter:description" content="平时工作做C/C++方面的开发更多还是在Windows下使用Visual Studio，几乎都是做跨平台开发，Windows上跑通后Linux上编译发布，基本上都没什么问题，如果的确需要调试，有VisualGDB的存在也很方便；但在macOS下使用过IDE性质的XCode,CLion,Qt Creator，也使用...">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="在macOS下使用Visual Studio Code进行C/C++开发">
+  <meta property="og:description" content="平时工作做C/C++方面的开发更多还是在Windows下使用Visual Studio，几乎都是做跨平台开发，Windows上跑通后Linux上编译发布，基本上都没什么问题，如果的确需要调试，有VisualGDB的存在也很方便；但在macOS下使用过IDE性质的XCode,CLion,Qt Creator，也使用...">
+  
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/01/use_vscode_for_c_c++_development_in_macos/">
+  <link rel="alternate" type="application/rss+xml" title="王俊男" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+<!-- 百度统计 -->
+  
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?15c4fed56d4cae267af95752c20fa16e";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  
+
+<!-- google 统计 -->
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-87578654-1', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      存档
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">            
+            <a href="/#blog" title="前往 王俊男 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2> 
+                            
+                                freeWind
+                            
+                        </h2>
+                        <p>
+                           
+                                编程·管理·运动·读书
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="前往 王俊男 的主页" class="blog-button">王俊男</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">Charles Wong</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">自由的风</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">存档</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title">在macOS下使用Visual Studio Code进行C/C++开发</h1>
+    <div class="post-meta">
+      <time datetime="2017-01-23 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-01-23</time>
+     
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+      <span id="busuanzi_container_page_pv">　　阅读：<span id="busuanzi_value_page_pv"></span>次</span>
+    </p>
+    </div>
+  </header>
+
+  <section class="post">
+    <p>平时工作做C/C++方面的开发更多还是在Windows下使用Visual Studio，几乎都是做跨平台开发，Windows上跑通后Linux上编译发布，基本上都没什么问题，如果的确需要调试，有VisualGDB的存在也很方便；但在macOS下使用过IDE性质的XCode,CLion,Qt Creator，也使用过轻量级的诸如TextMate, Sublime Text，但始终找不到Visual Studio的感觉，回想起来macOS下使用最多的C/C++开发环境居然是CodeRunner；直到最近这几天有空折腾了一下Vistual Studio Code，瞬间找到了初恋的感觉!</p>
+
+<h3 id="需求">需求</h3>
+
+<p>粗略想了下，进行C/C++开发，我需要的功能大概有：</p>
+
+<ol>
+  <li>格式化</li>
+  <li>自动完成</li>
+  <li>Lint</li>
+  <li>符号检索</li>
+  <li>方便的跳转和查看</li>
+  <li>可视化调试(别给我提GDB，你能苛求一个连VIM都讨厌的人使用GDB?)</li>
+</ol>
+
+<p>而上面这些功能使用Visual Studio Code和必要的插件几乎可以达到Vistual Studio 80%的体验</p>
+
+<h3 id="打造">打造</h3>
+
+<ol>
+  <li>安装<a href="http://code.visualstudio.com" target="_blank">Visual Studio</a></li>
+  <li>安装<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools" target="_blank">cpptools</a>插件，这个Micrsoft出品的插件几乎囊括了我前面说的所有功能，但他的自动完成是Fuzzy的，非常糟糕；另外他的Lint功能也进行只局限于文件包含；<em>注：该插件安装完成后会自动安装必要的依赖更新</em>.</li>
+  <li>安装<a href="https://marketplace.visualstudio.com/items?itemName=mitaki28.vscode-clang" target="_blank">C/C++ Clang</a>插件，这个插件只有两个功能，<strong>自动完成</strong>和<strong>诊断Diagnostic(Lint)</strong>，其使用Clang实时分析，什么模板嵌套都能分析，功能异常强大；</li>
+  <li>
+    <p>上面两个如果同时启用的话会发生冲突，并且[C/C++ Clang]插件默认不进行C++11分析，点击[Code]-&gt;[首选项]-&gt;[用户设置]进行如下配置:</p>
+
+    <blockquote>
+      <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"C_Cpp.autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disabled"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"clang.cxxflags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"-std=c++11"</span><span class="p">]</span><span class="w">
+</span></code></pre></div>      </div>
+    </blockquote>
+  </li>
+</ol>
+
+<blockquote>
+  <p>注：仅仅需要上面两个插件就够了，高安装量的<a href="https://marketplace.visualstudio.com/items?itemName=austin.code-gnu-global">C++ Intellisense</a>插件千万别装，它会和上述两个插件冲突，从而出现各种奇怪问题；</p>
+</blockquote>
+
+<h3 id="体验">体验</h3>
+
+<ol>
+  <li>打开一个包含有C/C++文件的目录；</li>
+  <li>
+    <p>使用[F1]或[⇧⌘P]打开命令模式，选择[C/Cpp: Edit Configurations]命令，其会在目录的.vscode配置目录下生成一个c_cpp_properties.json文件，修改Mac节点下的includePath变量添加C++11跳转支持：</p>
+
+    <blockquote>
+      <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"includePath"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"/usr/include"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"</span><span class="p">],</span><span class="w">
+</span></code></pre></div>      </div>
+      <p><em>注：如果引入其他库，将库路径按以上方式附在后面即可</em></p>
+    </blockquote>
+  </li>
+  <li>
+    <p>打开命令模式，选择[Tasks: Configure Task Runner]命令，其会在目录的.vscode配置目录下生成一个tasks.json文件，修改配置：</p>
+
+    <blockquote>
+      <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">See</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//go.microsoft.com/fwlink/?LinkId=</span><span class="mi">733558</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">documentation</span><span class="w"> </span><span class="err">about</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">tasks.json</span><span class="w"> </span><span class="err">format</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clang++"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"isShellCommand"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"main.cpp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-std=c++11"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-g"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"showOutput"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>      </div>
+      <p><em>注：main.cpp是入口文件，你可以修改成你自己的，如果是有多个入口的测试项目，我一般定义为${file}，只是必须选定文件启动；另外args中必须添加-g选项，否则调试无效；要支持C++11，必须添加-std=c++11选项；如果还有其他编译要求，将选项附加在后面即可(调试模式我经常使用–save-temps来查看编译中间文件)；之后[⌘P]然后执行[task clang++]，或者直接[⇧⌘B]就可自动编译</em>.</p>
+    </blockquote>
+  </li>
+  <li>打开命令模式，选择[Debug: Open launch.json]命令，其会在目录的.vscode配置目录下生成一个launch.json文件；修改program为:${workspaceRoot}/a.out；如果需要读取参数，修改args配置；我一般会习惯性的加上”preLaunchTask”: “clang++”配置，这样当源代码发生改变时，启动调试会自动编译；</li>
+  <li>之后的调试流程，基本上就和Vistual Studio一样了，附一张调试图:</li>
+</ol>
+
+<p><img src="/assets/use_vscode_for_c_c++_development_in_macos/01.png" alt="" /></p>
+
+<h3 id="参考资料">参考资料</h3>
+
+<p><a href="http://code.visualstudio.com/docs/languages/cpp#_getting-started" target="_blank">C/C++ for VS Code (Preview)</a></p>
+
+<p><br /></p>
+
+<blockquote>
+  <p><a href="/2017/01/use_vscode_for_c_c++_development_in_macos/">原始链接</a> 版权声明：自由转载-非商用-非衍生-保持署名 | <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">Creative Commons BY-NC-ND 4.0</a></p>
+</blockquote>
+
+
+  </section>
+</article>
+
+<section>
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2017/01/cpp11_atomic_and_lockfree_program/" data-toggle="tooltip" data-placement="top" title="C++11原子操作与无锁编程">上一篇：  <span>C++11原子操作与无锁编程</span>
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2017/02/use_template_and_macro_to_check_for_member_of_class_is_exist/" data-toggle="tooltip" data-placement="top" title="使用模板和宏静态检查类成员是否存在">下一篇：  <span>使用模板和宏静态检查类成员是否存在</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+
+  
+    <div class="ds-thread" data-thread-key="/2017/01/use_vscode_for_c_c++_development_in_macos/" data-title="在macOS下使用Visual Studio Code进行C/C++开发" data-url="http://localhost:4000/2017/01/use_vscode_for_c_c++_development_in_macos/"></div>
+
+    <script type="text/javascript">
+        var duoshuoQuery = {short_name:"freeWind"};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+        <div class = "footer_div">  
+        <nav class="cover-navigation navigation--social">
+          <ul class="navigation">
+
+          
+          <!-- Weibo -->
+          <li class="navigation__item_social">
+            <a href="http://weibo.com/1073227497" title="@1073227497 的 微博" target="_blank">
+              <i class='social fa fa-weibo fa-2x'></i>
+              <span class="label">Weibo</span>
+            </a>
+          </li>
+          
+
+          
+          <!-- Github -->
+          <li class="navigation__item_social">
+            <a href="https://github.com/stidio" title="@stidio 的 Github" target="_blank">
+              <i class='social fa fa-github fa-2x'></i>
+              <span class="label">Github</span>
+            </a>
+          </li>
+          
+          
+          
+
+          
+
+          <!-- RSS -->
+          <li class="navigation__item_social">
+            <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+              <i class='social fa fa-rss fa-2x'></i>
+              <span class="label">RSS</span>
+            </a>
+          </li>
+
+          
+          <!-- Email -->
+          <li class="navigation__item_social">
+            <a href="mailto:stidio@163.com" title="Contact me">
+              <i class='social fa fa-envelope fa-2x'></i>
+              <span class="label">Email</span>
+            </a>
+          </li>
+          
+
+          </ul>
+        </nav>
+
+        </div>
+        <br/>
+        <div class = "footer_div">  
+           <div class="copyright text-muted" style="float:left; width:100%;margin-right: -200px;">
+            Copyright &copy; 王俊男 2018 Theme by <a href="http://stidio.github.io/">stidio</a> |
+            <iframe
+                style="margin-left: 2px; margin-bottom:-5px;"
+                frameborder="0" scrolling="0" width="91px" height="20px"
+                src="https://ghbtns.com/github-btn.html?user=stidio&repo=stidio.github.io&type=star&count=true" >
+            </iframe>
+            </div>
+        	<div align="right" style="float: right; width: 200px;">
+    			<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    			<span id="busuanzi_value_page_pv"></span> 本站访问：<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次
+          	</div>
+        <div>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>
