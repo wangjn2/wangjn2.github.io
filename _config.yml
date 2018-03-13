@@ -5,7 +5,7 @@ description: 自由的风
 # 头像里面的标题
 avatarTitle: freeWind
 # 头像里面的描述
-avatarDesc: 编程·管理·运动·读书
+avatarDesc: 编程·管理·读书
 url: "http://jnwang2.github.io"
 
 # Comment
@@ -15,20 +15,20 @@ comment:
 
 # Social
 social:
-    weibo: 1073227497 
-    github: stidio
+    weibo:
+    github: wanjn2
     # twitter: 
-    mail: stidio@163.com
+    mail: wangjn2@163.com
 
 # 百度统计 
 # 使用博客模板请去掉或者更换 id 
 baidu:
-    id: 15c4fed56d4cae267af95752c20fa16e  
+    id:
 
 # Google Analytics
 # 使用博客模板请去掉或者更换 id
 ga:
-    id: UA-87578654-1
+    id:
     host: auto  
 
 
