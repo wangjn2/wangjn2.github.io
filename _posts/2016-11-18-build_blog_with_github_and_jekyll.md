@@ -23,7 +23,7 @@ tags: [Jekyll, GitHub, 教程]
 
 ### 建立GitHub Pages站点 ###
 
-1. 在GitHub上建立一个以 ***.github.io*** 为后缀的和你帐号名一样的代码仓库，如我的帐号是:[stidio](https://github.com/stidio){:target="_blank"}，则建立的仓库名为:[stidio.github.io](https://github.com/stidio/stidio.github.io){:target="_blank"}, 同时在底部Add .gitigore选择Jekyll模板，这样Jekyll产生的临时文件，例如_site目录就不会添加到源代码管理中，当然你也可以以后手动配置:
+1. 在GitHub上建立了一个以 ***.github.io*** 为后缀的和你帐号名一样的代码仓库，如我的帐号是:[stidio](https://github.com/stidio){:target="_blank"}，则建立的仓库名为:[stidio.github.io](https://github.com/stidio/stidio.github.io){:target="_blank"}, 同时在底部Add .gitigore选择Jekyll模板，这样Jekyll产生的临时文件，例如_site目录就不会添加到源代码管理中，当然你也可以以后手动配置:
 
     ![](/assets/build_blog_with_github_and_jekyll/02.jpg)
 
