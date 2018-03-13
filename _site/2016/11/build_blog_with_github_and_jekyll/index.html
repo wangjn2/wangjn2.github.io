@@ -371,18 +371,25 @@
 <section class="post-comments">
 
   
-    <div class="ds-thread" data-thread-key="/2016/11/build_blog_with_github_and_jekyll/" data-title="使用GitHub Pages+Jekyll搭建个人博客" data-url="http://localhost:4000/2016/11/build_blog_with_github_and_jekyll/"></div>
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2016/11/build_blog_with_github_and_jekyll/";
+        this.page.identifier = "/2016/11/build_blog_with_github_and_jekyll/";
+    };
 
-    <script type="text/javascript">
-        var duoshuoQuery = {short_name:"freeWind"};
-        (function() {
-            var ds = document.createElement('script');
-            ds.type = 'text/javascript';ds.async = true;
-            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            ds.charset = 'UTF-8';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    var disqus_shortname = 'freewind-17';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
         })();
     </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
   
   
   
