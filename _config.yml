@@ -3,10 +3,10 @@ title: 王凯男
 subtitle: Charles Wong
 description:
 # 头像里面的标题
-avatarTitle: freeWind
+avatarTitle: goodfelling
 # 头像里面的描述
 avatarDesc: 编程·管理·读书
-url: "http://jnwang2.github.io"
+url: "http://wkn.github.io"
 
 # Comment
 comment:
@@ -16,9 +16,9 @@ comment:
 # Social
 social:
     weibo:
-    github: wangjn2
+    github: wangkn
     # twitter: 
-    mail: wangjn2@163.com
+    mail: wkn1714178948@163.com
 
 # 百度统计 
 # 使用博客模板请去掉或者更换 id 

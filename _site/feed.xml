@@ -5,32 +5,9 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 13 Mar 2018 21:38:56 +0800</pubDate>
-    <lastBuildDate>Tue, 13 Mar 2018 21:38:56 +0800</lastBuildDate>
+    <pubDate>Mon, 19 Mar 2018 17:10:50 +0800</pubDate>
+    <lastBuildDate>Mon, 19 Mar 2018 17:10:50 +0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
-    
-      <item>
-        <title>math</title>
-        <description>&lt;p&gt;about math&lt;/p&gt;
-
-&lt;p&gt;@wangkainan-X555LD:~/IdeaProjects/wangjn2.github.io$ bundle exec jekyll serve
-Configuration file: /home/wangkainan/IdeaProjects/wangjn2.github.io/_config.yml
-            Source: /home/wangkainan/IdeaProjects/wangjn2.github.io
-       Destination: /home/wangkainan/IdeaProjects/wangjn2.github.io/_site
- Incremental build: disabled. Enable with –incremental
-      Generating… 
-                    done in 1.028 seconds.
- Auto-regeneration: enabled for ‘/home/wangkainan/IdeaProjects/wangjn2.github.io’
-    Server address: http://127.0.0.1:4000&lt;/p&gt;
-</description>
-        <pubDate>Tue, 13 Mar 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2018/03/math/</link>
-        <guid isPermaLink="true">http://localhost:4000/2018/03/math/</guid>
-        
-        <category>math</category>
-        
-        
-      </item>
     
       <item>
         <title>购买GoDaddy域名设置GitHub Pages</title>
@@ -111,6 +88,219 @@ At the bottom click the “ADD” button and make another Type “A” row with 
         <guid isPermaLink="true">http://localhost:4000/2018/03/hello_world/</guid>
         
         <category>Jekyll</category>
+        
+        <category>教程</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>使用GitHub Pages+Jekyll搭建个人博客</title>
+        <description>&lt;p&gt;周末折腾了大概两个半天加一个晚上，基于&lt;a href=&quot;https://pages.github.com&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt; + Jekyll(&lt;a href=&quot;https://jekyllrb.com&quot; title=&quot;英文官网&quot; target=&quot;_blank&quot;&gt;EN&lt;/a&gt;,&lt;a href=&quot;http://jekyll.com.cn&quot; title=&quot;中文站点&quot; target=&quot;_blank&quot;&gt;CN&lt;/a&gt;)的个人博客站点终于上线了，本文将中间过程记录整理后，作为本站的第一篇文章发布出来，希望对您有所帮助。&lt;a href=&quot;/2018/03/build_blog_with_github_and_jekyll/&quot; title=&quot;使用GitHub+Jekyll搭建个人博客&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;转载请标明出处，谢谢&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;概述&quot;&gt;概述&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/build_blog_with_github_and_jekyll/01.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GitHub Pages&lt;/code&gt;&lt;/strong&gt; 免费无限容量的站点数据托管工具(&lt;em&gt;国内访问速度较慢&lt;/em&gt;)，内置Jekyll服务，能将特定名称的代码仓库动态编译为静态网页&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;&lt;/strong&gt; 基于Ruby的静态网页生成系统，采用模板将Markdown(或Textile)文件转换为统一的网页&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;统计&lt;/strong&gt; 统计工具主要是为了方便查看站点的访问情况，目前支持&lt;a href=&quot;http://tongji.baidu.com&quot; target=&quot;_blank&quot;&gt;百度统计&lt;/a&gt;和&lt;a href=&quot;http://www.google.com/analytics/&quot; target=&quot;_blank&quot;&gt;Google Analytics&lt;/a&gt;(可同时使用)&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;评论&lt;/strong&gt; 评论工具可以为静态页面增加评论和分享功能，目前支持国内的&lt;a href=&quot;http://duoshuo.com&quot; target=&quot;_blank&quot;&gt;多说&lt;/a&gt;和国外的&lt;a href=&quot;https://disqus.com&quot; target=&quot;_blank&quot;&gt;Disqus&lt;/a&gt;&lt;/p&gt;
+
+  &lt;blockquote&gt;
+    &lt;p&gt;&lt;em&gt;本文将重点介绍标注 &lt;code class=&quot;highlighter-rouge&quot;&gt;　　　&lt;/code&gt; 的必选项目，未标注的可选项目请按照给定地址自行注册即可&lt;/em&gt;&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;建立github-pages站点&quot;&gt;建立GitHub Pages站点&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;在GitHub上建立了一个以 &lt;strong&gt;&lt;em&gt;.github.io&lt;/em&gt;&lt;/strong&gt; 为后缀的和你帐号名一样的代码仓库，如我的帐号是:&lt;a href=&quot;https://github.com/stidio&quot; target=&quot;_blank&quot;&gt;stidio&lt;/a&gt;，则建立的仓库名为:&lt;a href=&quot;https://github.com/stidio/stidio.github.io&quot; target=&quot;_blank&quot;&gt;stidio.github.io&lt;/a&gt;, 同时在底部Add .gitigore选择Jekyll模板，这样Jekyll产生的临时文件，例如_site目录就不会添加到源代码管理中，当然你也可以以后手动配置:&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/assets/build_blog_with_github_and_jekyll/02.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;将该代码仓库克隆到地:&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/stidio/stidio.github.io
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;      &lt;/div&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;创建一个测试页面并推送:&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;stidio.github.io
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello World&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; index.html
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nt&quot;&gt;--all&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Initial commit&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;      &lt;/div&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;浏览器中输入&lt;a href=&quot;https://stidio.github.io&quot;&gt;stidio.github.io&lt;/a&gt;，如果一切正常，你应该能看到一个显示Hello World的页面.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;请将以上的 &lt;strong&gt;stidio&lt;/strong&gt; 替换为你申请的帐号名&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;安装配置jekyll&quot;&gt;安装配置Jekyll&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;安装Jekyll:&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem install jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;      &lt;/div&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;创建或使用模板, 创建模板使用 &lt;em&gt;jekyll new &lt;strong&gt;name&lt;/strong&gt;&lt;/em&gt; 命令，但创建出来的测试模板极其简陋，在这里我主要介绍使用第三方主题，在 &lt;a href=&quot;http://jekyllthemes.org&quot; target=&quot;_blank&quot;&gt;这里&lt;/a&gt; 你可以找到各种主题，当然你也可以直接使用我的博客模板:&lt;a href=&quot;https://github.com/stidio/stidio.github.io/archive/master.zip&quot;&gt;点击下载&lt;/a&gt;，下载后解压到本地代码仓库目录，并运行 &lt;em&gt;bundle install&lt;/em&gt; 命令安装项目依赖包.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;运行 &lt;em&gt;jekyll serve&lt;/em&gt; 启动本地测试服务器，Jekyll默认使用4000端口，如果被占用，可以使用 &lt;em&gt;jekyll serve -P $PORT&lt;/em&gt; 指定其他端口，如果本机从没配置过Jekyll，可能会给出 &lt;em&gt;cannot load such file – bundler&lt;/em&gt; 的错误，运行 &lt;em&gt;gem install bundler&lt;/em&gt; 即可解决，如果还是出现包缺失的错误，可以从以下两点排查：&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Gemfile文件未添加指定包&lt;/li&gt;
+        &lt;li&gt;运行环境冲突，可以运行 &lt;em&gt;bundle exe jekyll serve&lt;/em&gt; 执行，或者运行 &lt;em&gt;sudo bundle clean –force&lt;/em&gt;(&lt;strong&gt;该命令会对全局环境造成影响，小心使用&lt;/strong&gt;) 强制清理无关包后重新运行&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在浏览器中输入 &lt;a href=&quot;http://127.0.0.1:4000&quot; target=&quot;_blank&quot;&gt;127.0.0.1:4000&lt;/a&gt; 进行本地预览&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ruby包管理工具介绍&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gem&lt;/code&gt; 全局包管理工具，类似于Python的pip, Node.js的npm -g
+      &lt;ul&gt;
+        &lt;li&gt;gem install               安装组件&lt;/li&gt;
+        &lt;li&gt;gem install -v            安装特定版本&lt;/li&gt;
+        &lt;li&gt;gem list                  列出已经安装组件&lt;/li&gt;
+        &lt;li&gt;gem sources -a            添加源&lt;/li&gt;
+        &lt;li&gt;gem sources –remove      删除源&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bundle&lt;/code&gt; 项目包管理工具，可以理解为一个独立的运行环境
+      &lt;ul&gt;
+        &lt;li&gt;bundle update             更新项目依赖包&lt;/li&gt;
+        &lt;li&gt;bundle install            安装项目依赖包&lt;/li&gt;
+        &lt;li&gt;sudo bundle clean –force 强制删除不相关的包&lt;/li&gt;
+        &lt;li&gt;bundle exe                在指定环境中运行&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;使用我的博客模板&quot;&gt;使用我的博客模板&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;按照注释说明修改 &lt;em&gt;_config.yml&lt;/em&gt; 配置文件&lt;/li&gt;
+  &lt;li&gt;删除文章目录 &lt;em&gt;_post/&lt;/em&gt; 和文章图片目录 &lt;em&gt;images/posts/&lt;/em&gt; 下面的所有内容&lt;/li&gt;
+  &lt;li&gt;Enjoy!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;我的模板在 &lt;a href=&quot;https://github.com/leopardpan/leopardpan.github.io&quot; target=&quot;_blank&quot;&gt;leopardpan&lt;/a&gt; 基础上进行了修改，主要改进了以下内容:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;统一风格，给关于，标签页面添加了标题栏&lt;/li&gt;
+    &lt;li&gt;添加分割改进文章列表的多标签显示&lt;/li&gt;
+    &lt;li&gt;修正了一些翻译不全的文字&lt;/li&gt;
+    &lt;li&gt;代码颜色高亮支持，综合了Pygments monokai方案和Rouge monokai.sublime方案，&lt;a href=&quot;/css/code_style_monokai.css&quot; target=&quot;_blank&quot;&gt;点此查看&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;底部统计和版权排版对齐&lt;/li&gt;
+    &lt;li&gt;更新Jekyll及其依赖包到最新版本&lt;/li&gt;
+    &lt;li&gt;修正jekyll-sitemap加载失败的问题&lt;/li&gt;
+    &lt;li&gt;支持GFM形式的Markdown Codeblock解析&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;如果喜欢请&lt;a href=&quot;https://github.com/stidio/stidio.github.io&quot; target=&quot;_blank&quot;&gt;Star!&lt;/a&gt;，谢谢!&lt;/p&gt;
+
+&lt;h3 id=&quot;编写文章&quot;&gt;编写文章&lt;/h3&gt;
+
+&lt;p&gt;文章为Markdown格式，请使用.md作为后缀名，有以下两个文章目录：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; 文件名格式为：YEAR-MONTH-DAY-title.md&lt;/li&gt;
+    &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_drafts&lt;/code&gt; 草稿目录，文件名格式为：title.md，即不加日期前缀，如果需要预览草稿，使用 &lt;em&gt;--drafts&lt;/em&gt; 选项运行 &lt;em&gt;jekyll serve&lt;/em&gt; 或 &lt;em&gt;jekyll build&lt;/em&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;&lt;strong&gt;* 尽量避免使用中文文件名, 具体目录结构请参考: &lt;a href=&quot;http://jekyll.com.cn/docs/structure/&quot; target=&quot;_blank&quot;&gt;官方文档&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;每篇文章都必须以参数：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;div class=&quot;language-conf highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+&lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt;: &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;: 使用&lt;span class=&quot;n&quot;&gt;GitHub&lt;/span&gt;+&lt;span class=&quot;n&quot;&gt;Jekyll&lt;/span&gt;搭建个人博客
+&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;: &lt;span class=&quot;m&quot;&gt;2016&lt;/span&gt;-&lt;span class=&quot;m&quot;&gt;11&lt;/span&gt;-&lt;span class=&quot;m&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;11&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;29&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;08&lt;/span&gt; +&lt;span class=&quot;m&quot;&gt;0800&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tags&lt;/span&gt;: [&lt;span class=&quot;n&quot;&gt;Jekyll&lt;/span&gt;, &lt;span class=&quot;n&quot;&gt;GitHub&lt;/span&gt;, 教程]
+---
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;作为头部信息，layout为布局格式；title为显示的文章名；date为显示的发布日期；tags为文章分类标签&lt;/p&gt;
+
+&lt;p&gt;文章正文采用Markdown编写，如果不熟悉可以查看: &lt;a href=&quot;http://wowubuntu.com/markdown/basic.html&quot; target=&quot;_blank&quot;&gt;Markdown 快速入门&lt;/a&gt;；强烈建议遵循&lt;a href=&quot;https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md&quot; target=&quot;_blank&quot;&gt;Markdown Lint&lt;/a&gt;，规范有一些对书写文章不友好的地方，我做了调整，以下是我的&lt;a href=&quot;https://code.visualstudio.com&quot; target=&quot;_blank&quot;&gt;Visual Studio Code&lt;/a&gt;的配置文件:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;markdownlint.config&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MD002&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                                 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;禁用文章开头必须为H&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;标题栏&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MD001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                                 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;禁用严格的标题层级关系(H&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&amp;gt;H&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;-&amp;gt;H&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MD003&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;style&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;setext_with_atx_closed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;允许#和===形式的标题风格混用&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MD009&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;br_spaces&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;允许末尾两个空格为&amp;lt;BR/&amp;gt;自动换行模式&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MD013&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                                 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;禁用单行长度限制&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MD014&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                                 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;禁用sh命令以&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;作为开始&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MD038&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                                 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;禁用代码不以空格作为开始或结束&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MD041&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                                 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;禁用代码段必须有标题栏&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MD029&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;style&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ordered&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;                 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;有序列表格式为顺序方式&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Jekyll的Markdown解释器从3.0开始，默认从 &lt;em&gt;redcarpet+Pygments&lt;/em&gt; 换为 &lt;em&gt;kramdown+Rouge&lt;/em&gt;, 现在已知的问题为：列表下不支持GFM形式的代码块(神奇的是Github下的README.md文件支持)，折中的办法是使用区块引用(Blockquote)，在其下再使用代码块(我的博客模板已针对这种情况在呈现上做了优化)&lt;/p&gt;
+
+&lt;h3 id=&quot;参考资料&quot;&gt;参考资料&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.runoob.com/w3cnote/git-guide.html&quot; target=&quot;_blank&quot;&gt;Github 简明教程&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://rogerdudler.github.io/git-guide/index.zh.html&quot; target=&quot;_blank&quot;&gt;Git 简明指南&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://jekyllrb.com/docs/home/&quot; target=&quot;_blank&quot;&gt;Jekyll 英文文档&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://jekyll.com.cn/docs/home/&quot; target=&quot;_blank&quot;&gt;Jekyll 中文文档&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://blog.csdn.net/qiujuer/article/details/50419279&quot; target=&quot;_blank&quot;&gt;Jekyll 代码高亮的几种选择&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://wowubuntu.com/markdown/index.html&quot; target=&quot;_blank&quot;&gt;Markdown 语法说明&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md&quot; target=&quot;_blank&quot;&gt;Markdown Lint&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;http://kramdown.gettalong.org/quickref.html&quot; target=&quot;_blank&quot;&gt;kramdown Quick Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;/2018/03/build_blog_with_github_and_jekyll/&quot;&gt;原始链接&lt;/a&gt; 版权声明：自由转载-非商用-非衍生-保持署名 | &lt;a href=&quot;http://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh&quot;&gt;Creative Commons BY-NC-ND 4.0&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sun, 11 Mar 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/03/build_blog_with_github_and_jekyll/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/03/build_blog_with_github_and_jekyll/</guid>
+        
+        <category>Jekyll</category>
+        
+        <category>GitHub</category>
         
         <category>教程</category>
         

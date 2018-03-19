@@ -5,8 +5,6 @@ header: 关于我
 ---
 <h3>{{ page.header }}</h3>
 
-good good
-
 - If you can’t explain it simply, you don’t understand it well enough. —Albert Einstein
 
 - Most of the fundamental ideas of science are essentially simple, and may, as a rule, be expressed in language comprehensible to everyone. —Albert Einstein
